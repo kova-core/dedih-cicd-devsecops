@@ -57,6 +57,7 @@ jobs:
   secret-scan:
     name: Secret scan (gitleaks)
     runs-on: ubuntu-latest
+    needs: build-and-test
     # Least privilege: csak annyi jog, amennyi szükséges
     permissions:
       contents: read         # a repo kiolvasásához
