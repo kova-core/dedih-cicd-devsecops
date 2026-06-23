@@ -30,6 +30,6 @@ def test_greet_accepts_max_length_name():
     # Új határeset-teszt: a Pydantic modell max_length=50, ezért a leghosszabb
     # elfogadott név pontosan 50 karakter. Klasszikus off-by-one bug: a teszt
     # 51 karakteres nevet küld és HTTP 200-at vár, ezért a CI piros.
-    long_name = "A" * 51
+    long_name = "A" * 50
     response = client.post("/greet", json={"name": long_name})
     assert response.status_code == 200
