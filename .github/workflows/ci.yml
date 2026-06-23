@@ -83,23 +83,23 @@ jobs:
   # requirements.txt-t és leállítja a buildet, ha ismert CVE van benne.
   # A PyPA tartja karban, ezért konvencionálisan ezt választjuk.
   # ============================================================================
-  # sca-audit:
-  #   name: SCA audit (pip-audit)
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Repo letöltése
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Python beállítása
-  #       uses: actions/setup-python@v5
-  #       with:
-  #         python-version: "3.11"
-  #
-  #     - name: Függőségek telepítése
-  #       run: pip install -r requirements.txt
-  #
-  #     - name: Audit futtatása
-  #       run: pip-audit -r requirements.txt
+  sca-audit:
+    name: SCA audit (pip-audit)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repo letöltése
+        uses: actions/checkout@v4
+  
+      - name: Python beállítása
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+  
+      - name: Függőségek telepítése
+        run: pip install -r requirements.txt
+  
+      - name: Audit futtatása
+        run: pip-audit -r requirements.txt
 
   # ============================================================================
   # BLOCK 5 UNLOCK: AI assisted code review
